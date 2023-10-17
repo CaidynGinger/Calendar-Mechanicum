@@ -1,0 +1,50 @@
+.calendar {
+width: 100%;
+//   border-top: 2px silver solid;
+}
+
+.calendar table {
+  width: 100%;
+  border-spacing: 0px;
+}
+
+.table_row{
+    width: 100%;
+}
+
+.table_row th{
+    width: calc(100%/7);
+    // border-collapse: collapse;
+}
+
+.topNav{
+    display: flex;
+    align-content: center;
+    height: 74px;
+    // box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+}
+
+.day_title{
+    text-align: center;
+    font-weight: 300;
+    font-size: 18px;
+    margin: 20px 0 15px 0;
+}
+
+.monthSelect{
+    font-size: 32px;
+    display: flex;
+    align-items: center;
+    margin: 0 20px;
+    height: 100%;
+    ion-icon{
+        --ionicon-stroke-width: 16px;
+        &:hover{
+            cursor: pointer;
+            color: aqua;
+        }
+    }
+    h3{
+        font-weight: 300;
+    }
+}

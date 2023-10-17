@@ -1,0 +1,21 @@
+.dock {
+  height: 100vh;
+  width: 400px;
+  // i want a back ground imager with a gradient
+}
+
+.bg_image {
+  height: 100vh;
+  width: 400px;
+  background-position: center;
+  background-size: cover;
+  filter: blur(1px);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-image: linear-gradient(
+      to right,
+      rgba(52, 152, 219, 0.3),
+      rgba(0, 0, 0, 0.5)
+    ),
+    url(../../assets/images/massimo-verona-on-the-walk.jpg);
+}
