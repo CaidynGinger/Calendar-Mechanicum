@@ -13,24 +13,92 @@ export const Calender = () => {
     setCalendar(buildCalender(value));
   }, [value]);
 
+  const onSetValueTodayHandler = () => {
+    setValue(moment());
+  };
+
+  const subtractOneMonthHandler = () => {
+    setValue(value.clone().subtract(1, "month"));
+  };
+
+  const addOneMonthHandler = () => {
+    setValue(value.clone().add(1, "month"));
+  };
+
+  const events = [
+    {
+      id: 1,
+      title: "Event 1",
+      desc: "Description 1",
+      color: "#badc58",
+      date: "2023-10-18",
+    },
+    {
+      id: 2,
+      title: "Event 1",
+      desc: "Description 1",
+      color: "#58DC75",
+      date: "2023-10-9",
+    },
+    {
+      id: 5,
+      title: "Event 1",
+      desc: "Description 1",
+      color: "#58DC75",
+      date: "2023-10-9",
+    },
+    {
+      id: 3,
+      title: "Event 1",
+      desc: "Description 1",
+      color: "#58DC75",
+      date: "2023-10-9",
+    },
+    {
+      id: 4,
+      title: "Event 1",
+      desc: "Description 1",
+      color: "#58DC75",
+      date: "2023-10-9",
+    },
+  ];
+
   return (
     <div className={styles.calendar}>
       <div className={styles.topNav}>
         <div className={styles.monthSelect}>
-        
-          <ion-icon name="chevron-back-outline"></ion-icon>
-          <ion-icon name="chevron-forward-outline"></ion-icon>
+          {/* <div>
+                <p>Today day</p>
+            </div> */}
+          <ion-icon
+            onClick={subtractOneMonthHandler}
+            name="chevron-back-outline"
+          ></ion-icon>
+          <ion-icon
+            onClick={addOneMonthHandler}
+            name="chevron-forward-outline"
+          ></ion-icon>
           <h3>{value.format("MMMM YYYY")}</h3>
         </div>
+        <div className={styles.buttons}>
+          <div
+            onClick={onSetValueTodayHandler}
+            className={styles.button_container}
+          >
+            <ion-icon name="today-outline"></ion-icon>
+            <h4>Today</h4>
+          </div>
+          <span className={styles.divider}></span>
+          <div className={styles.button_container}>
+            <ion-icon name="calendar-outline"></ion-icon>
+            <h4>Day</h4>
+          </div>
+          <div className={styles.button_container}>
+            <ion-icon name="calendar-clear-outline"></ion-icon>
+            <h4>Month</h4>
+          </div>
+        </div>
       </div>
-
-      {/* <div>
-        <p>{"<-   -> March 2023"}</p>
-        <p>Today</p>
-        <p>Day</p>
-        <p>Week</p>
-        <p>Month</p>
-      </div> */}
       <table>
         <thead>
           <tr className={styles.table_row}>
@@ -61,7 +129,20 @@ export const Calender = () => {
           {Calendar.map((week, index) => (
             <tr key={index}>
               {week.map((day, index) => {
-                return <CalenderDay key={index} day={day} />;
+                let eventList = [];
+                events.forEach((event) => {
+                  if (moment(event.date).isSame(day, "day")) {
+                    eventList.push(event);
+                  }
+                });
+                return (
+                  <CalenderDay
+                    value={value}
+                    key={index}
+                    day={day}
+                    eventList={eventList}
+                  />
+                );
               })}
             </tr>
           ))}

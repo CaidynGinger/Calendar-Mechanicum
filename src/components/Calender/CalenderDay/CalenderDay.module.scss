@@ -1,12 +1,40 @@
 .single_day {
-  border: solid 1px silver;
   width: calc(100%/7);
-  padding: 3px;
   vertical-align: top;
-  height: 140px;
   position: relative;
+  padding: 3px;
+  height: 140px;
+  span{
+    margin-bottom: 3px;
+    width: 30px;
+    display: block;
+    text-align: center;
+    padding: 5px;
+    border-radius: 20px;
+  }
+  .cell_content{
+    overflow-y: auto;
+    display: flex;
+    scrollbar-width: none;  /* Firefox */
+    flex-direction: column;
+    height: 110px;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
 }
 
 .brake{
     margin-bottom: 5px;
+}
+
+.grayOut{
+  color: rgb(83, 83, 83);
+}
+
+.today{
+  span{
+    color: white;
+    background-color: #3498db;
+  }
 }
