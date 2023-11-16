@@ -3,8 +3,7 @@ import styles from "./CalenderDay.module.scss";
 import moment from "moment";
 import { EventCard } from "../EventCard/EventCard";
 
-export const CalenderDay = ({ day, value, eventList }) => {
-  console.log(eventList);
+export const CalenderDay = ({ day, value, eventList, onClickEvent }) => {
   const dayDisplay = day.format("D").toString();
   let cell_content = styles.cell_content;
 
@@ -17,13 +16,15 @@ export const CalenderDay = ({ day, value, eventList }) => {
     cell_content = styles.cell_content + " " + styles.today;
   }
 
+  
+
   // const day = props.day.day.format("D").toString();
   return (
     <td className={styles.single_day}>
       <span>{dayDisplay}</span>
       <div className={cell_content}>
         {eventList.map((event) => {
-          return <EventCard key={event.id} event={event} />;
+          return <EventCard key={event.id} event={event} onClickEvent={onClickEvent} />;
         })}
       </div>
     </td>

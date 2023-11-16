@@ -1,9 +1,15 @@
 import React from "react";
 import styles from "./EventCard.module.scss";
 
-export const EventCard = ({ event }) => {
+export const EventCard = ({ event, onClickEvent }) => {
+
+  const onclick = () => {
+    onClickEvent(event)
+  }
+
   return (
     <div
+      onClick={onclick}
       style={{
         backgroundColor: event.color,
       }}
@@ -15,9 +21,9 @@ export const EventCard = ({ event }) => {
           : event.title}
       </h6>
       <p>
-        {event.desc.length > 40
-          ? event.desc.substring(0, 10) + "..."
-          : event.desc}
+        {event.description.length > 40
+          ? event.description.substring(0, 10) + "..."
+          : event.description}
       </p>
     </div>
   );

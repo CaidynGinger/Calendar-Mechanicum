@@ -2,3 +2,11 @@
     display: flex;
     flex-direction: row;
 }
+
+.dock_container{
+    width: 400px;
+}
+
+.calendar_container{
+    width: calc(100vw - 400px);
+}

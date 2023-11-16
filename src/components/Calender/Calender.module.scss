@@ -2,6 +2,7 @@
   width: 100%;
   display: flex;
   flex-direction: column;
+  overflow: auto;
   //   border-top: 2px silver solid;
 }
 
@@ -98,4 +99,62 @@
 .divider {
   border-left: 2px solid silver;
   height: 100%;
+}
+
+.add_event_badge {
+  position: absolute;
+  bottom: 50px;
+  right: 50px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
+  border-radius: 10px;
+  background-color: #3498db;
+  color: white;
+  font-size: 16px;
+  padding: 10px;
+  &:hover {
+    cursor: pointer;
+    background-color: #2980b9;
+  }
+}
+
+.event_form {
+  position: fixed;
+  width: 400px;
+  z-index: 11;
+  height: 100vh;
+  background-color: rgb(202, 223, 255);
+  padding: 20px;
+  top: 0;
+  h3{
+    margin-top: 5px;
+    font-size: 24px;
+  }
+  .close {
+    ion-icon {
+      position: absolute;
+      right: 20px;
+      top: 20px;
+      font-size: 40px;
+      color: rgb(202, 223, 255);
+      cursor: pointer;
+      background-color: white;
+      border-radius: 50%;
+    }
+  }
+  button{
+    margin-top: 10px;
+  }
+}
+
+.show_form {
+  left: 0;
+  transition: left 0.5s ease-in-out;
+}
+
+.hide_form {
+  left: -400px;
+  transition: left 0.5s ease-in-out;
 }
